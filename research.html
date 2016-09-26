@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+
+  <title>Ilan Shomorony</title>
+  <link href="favicon2.ico" rel="shortcut icon">
+  <link href="styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<table id="global">
+<tbody><tr><td id="menu">
+<a href="index.html" target="_self">MAIN</a>
+&nbsp;&nbsp;::&nbsp;&nbsp;
+</t><span id="this">RESEARCH</span>
+&nbsp;&nbsp;::&nbsp;&nbsp;
+</t><a href="publications.html" target="_self">PUBLICATIONS</a>
+<!-- &nbsp;&nbsp;::&nbsp;&nbsp;<a href="cv.pdf">CV</a>-->
+</td></tr>
+<tr>
+  <td  bgcolor="#A4C6BF"></td>
+</tr>
+<tr>
+  <td colspan="all" bgcolor="#000000"></td>
+</tr>
+<tr><td id="content">
+
+
+
+  <h1>Research Projects</h1>
+ 
+ 
+ <!--   
+  <div id="cite"><strong>Error Correction of High-Throughput Genomic Data</strong> &nbsp; <a href="publications.html#c1">[C11]</a>
+  
+  <p>Roughly speaking, different shotgun sequencing platforms can be distinguished from the point of view of three main metrics:
+the read length, the read error rate, and the read throughput. In the last decade, the so-called next-generation sequencing
+platforms have attained considerable success at employing heavy parallelization in order to achieve high-throughput shotgun
+sequencing. This allowed a significant reduction in the cost and time of sequencing, causing an explosion in the number of
+new sequencing projects and the generation of massive amounts of sequencing data.
+In order to guarantee low error rates, most of these next-generation technologies are restricted to short read lengths. On
+the other hand, recent technologies that generate longer reads suffer from lower throughput and much higher error rates.</p>
+
+  <p>Given these technology trends and tradeoffs, Information Theory arises as a natural framework to study questions about
+the fundamental performance limitations, and in particular the error correction capability, of different sequencing technologies.
+Given a read length, an error rate and a coverage depth (i.e., the average number of reads per base), is there enough
+information in the read data to unambiguously reconstruct the genome? Do errors significantly increase the read length
+and/or coverage depth requirements? An answer to these basic feasibility questions can provide an algorithm-independent
+framework for evaluating different sequencing technologies.
+This information-theoretic approach to the assembly problem was initiated in [Bresler et al. 2013], with a focus on error-free reads. A
+feasibility curve relating the read length and coverage depth needed to perfectly assemble a genome was characterized in
+terms of the repeat complexity of the genome. </p></div>
+
+  <p align="center"><img src="curves.png" width=600px></p>
+
+
+  <p> Evaluating this curve on several genomes revealed an interesting threshold phenomenon: if the read length is below a certain critical value `crit, reconstruction is impossible;
+a read length slightly above l_crit and a coverage depth close to the Lander-Waterman depth c_LW (i.e., just enough reads
+to cover the whole sequence) is sufficient. The critical read length `crit is given by the length of the longest interleaved
+repeat in the genome, and coincides with the minimum read length L needed to uniquely reconstruct the genome given its
+L-spectrum, i.e. the set of reads with one length-L read starting at each position of the sequence, illustrated in Fig. 2.
+Recently, inspired by the framework introduced in [Bresler et al. 2013], we started studying the impact of read errors on assembly by
+asking how much the critical read length `crit increases when there are errors. In <a href="publications.html#c1">[C11]</a>, we investigated this tradeoff for a
+specific error model: 1) the errors are erasures; 2) the erasures occur at a rate no larger than D/L for each read and for each
+base in the sequence, but are otherwise arbitrary. The main result in <a href="publications.html#c1">[C11]</a> is the characterization of a critical read length Ã·`crit
+above which perfect assembly is always possible. While in the noiseless case l_crit is a function of the sequence repeat structure, Ã·`crit depends more generally on the error rate and on
+the approximate repeats in the sequence. By evaluating this value for several real genomes, we see that the impact of read errors on the fundamental assembly capabilities is not very severe.
+
+  <br><br> -->
+  
+
+  
+  <div id="cite"><strong>Fundamentals of Multi-hop Multi-flow Wireless Networks </strong> &nbsp; <a href="publications.html#j1">[J1]</a>,<a href="publications.html#c1" target="_self">[C1]</a>,<a href="publications.html#j6" target="_self">[J6]</a>,<a href="publications.html#c5" target="_self">[C5]</a>,<a href="publications.html#c6" target="_self">[C6]</a>
+  
+  <p>Recent years have seen a dramatic increase in the wireless data traffic, caused by the success of online media streaming services and the proliferation of
+  smart phones, tablets, and netbooks. Given the scarcity of wireless spectrum, the only way to meet this ever-increasing demand is to exploit a much denser spatial
+  reuse of the spectrum by considering new wireless network architectures; in particular those based on <i>multi-hop</i> and <i>multi-flow</i> paradigms.
+  However, little is known about the fundamental principles that govern the design of communication schemes for multi-hop multi-flow systems, and, in most of these scenarios,
+  an exact characterization of the Shannon capacity is still out of the question. Thus, in this research project, we seek alternative ways to study these networks, such as
+  (i) formulating and studying deterministic models that mimic the behavior of their stochastic counterparts, and
+  (ii) considering the high-SNR capacity approximation provided by a <i>degrees of freedom</i> analysis. </p>
+
+  <p>The characterization of the degrees of freedom often leads to a conceptual understanding of fundamental aspects of communication in these networks.
+  This is the case, for instance, of our results in <a href="publications.html#j6" target="_self">[J6]</a>. By showing that
+  <font face="times"> <i>K</i></font> degrees of freedom can be achieved on a two-hop
+  <font face="times"> <i>K</i> x <i>K</i> x <i>K</i> </font> network,
+  we provide an answer to a conceptual question about distributed MIMO systems which can be formulated in an algebraic way as a diagonalization problem, illustrated below.</p>
+  <div align="center"><img src="mimo2.png" width=600px></div>
+  <p>If the <font face="times"> <i>K</i></font> relays could cooperate (i.e., if they were a single MIMO node), they would apply the linear transformation <img src="eqinv.png" height=18px> 
+  in order to diagoanalize the end-to-end network transform. But if the <font face="times"> <i>K</i></font> relays cannot cooperate, how can this end-to-end diagonalization be obtained
+  in a distributed way? </p></div>
+
+  <br>
+  <div id="cite"><strong>Robustness of Theoretical Models</strong>  &nbsp; &nbsp; <a href="publications.html#j2" target="_self">[J2]</a>,<a href="publications.html#c3" target="_self">[C3]</a>,<a href="publications.html#c4" target="_self">[C4]</a>,<a href="publications.html#c5" target="_self">[C5]</a>,<a href="publications.html#j4" target="_self">[J4]</a>,<a href="publications.html#c7" target="_self">[C7]</a>
+  
+  <p>Gaussian models are ubiquitous in data compression and data communication problems. The additive noise experienced by wireless receivers,
+  for instance, is often modeled as a white Gaussian random process. Similarly, but perhaps less intuitively, data sources are also commonly modeled
+  as Gaussian processes. While these models are formally justified in point-to-point setups as the worst-case assumptions, the same was not known to be
+  the case in network setups, and the main reason for these assumptions was analytical tractability. Thus, from a theoretical standpoint, a relevant question is:
+  In what scenarios are these Gaussian models worst-case assumptions? And, from a practical perspective: Can compression and communication schemes be designed
+  under Gaussian assumptions and still be useful in non-Gaussian scenarios? </p>
+
+  <p>We answered these questions in the context of data communication in wireless networks <a href="publications.html#j2" target="_self">[J2]</a> and joint source-channel
+  coding in arbitrary networks <a href="publications.html#j5" target="_self">[J5]</a>.
+  We proved that the Gaussian distribution is indeed worst-case in these cases, by providing a framework that allows coding schemes designed under Gaussian
+  assumptions to be converted to coding schemes that are robust in the sense that they achieve the same performance under arbitrary statistical assumptions.
+  The figure below illustrates how this is done in network compression problems <a href="publications.html#j5" target="_self">[J5]</a>.</p>
+  <p align="center"><img src="gaussian.png" width=600px></p>
+  <p>Each source node applies a transformation to its non-Gaussian data source with the purpose of "gaussifying" it. More precisely, we find a sequence of such
+  transformations such that the resulting effective sources converge in distribution to Gaussian, i.e.,</p>
+  <p align="center"><img src="eqconv1.png" height=27px></p>
+  <p>All network nodes will then operate as if the sources were indeed Gaussian, and the destinations will apply the inverse transformations to the reconstructed
+  sequences, to "ungaussify" them.
+  We show that there exist optimal coding schemes for this network for which the above convergence in distribution implies convergence in distortion, i.e.,</p>
+  <p align="center"><img src="eqconv2.png" height=35px></p>
+  <p>Besides settling the aforementioned questions, this result and the result in <a href="publications.html#j2" target="_self">[J2]</a> allow us to establish connections between the distortion (or capacity) regions of networks under
+  different models. In <a href="publications.html#c5" target="_self">[C5]</a>, we pursued this direction and demonstrated that in two-hop multi-flow wireless networks the capacity under the Gaussian model can be upper
+  bounded by the capacity of the network under a deterministic model.</p></div>
+
+
+  <br>
+  <div id="cite"><strong>Relay Networks with Real-World Constraints</strong> &nbsp; &nbsp; <a href="publications.html#j3" target="_self">[J3]</a>,<a href="publications.html#c2" target="_self">[C2]</a>,
+  <a href="publications.html#j5" target="_self">[J5]</a>,<a href="publications.html#c8" target="_self">[C8]</a>
+  
+  <p>The study of wireless systems is traditionally performed with simplified models whose goal is to capture the fundamental aspects of communication and
+  provide insights into the design of optimal communication strategies. However, particularly for the case of large wireless relay networks, there are big
+  discrepancies between these theoretical models and the practical systems, which makes the conversion from theory to practice a research effort in itself.
+  Examples of these discrepancies include full duplex versus half duplex antennas, and the assumption of availability of channel state information at the network nodes.</p>
+
+  <p>The issues of synchronization between network nodes and energy-efficient communication were addressed in <a href="publications.html#j3" target="_self">[J3]</a> in the context of a two-relay network.
+  The main motivation for this work are wireless sensor networks, where nodes operate on batteries and the communication of data tends to be bursty, i.e., intermittent.
+  In this scenario, synchronization techniques must be used before every data transmission, and the synchronization energy costs become relevant.
+  In <a href="publications.html#j3" target="_self">[J3]</a>, by approximately characterizing the minimum energy-per-bit required in this asynchronous scenario, we were able to prove
+  the near optimality of training   sequences for synchronization, and determine, for a given two-node network, what is the optimal relay selection, as illustrated below.</p>
+  <div align="center"><img src="beta1.png" height=230px style="padding-right: 100px;"><img src="beta2.png" height=230px></div>
+  <p>In the figures above, if relay R2 were in a green area, the optimal relay selection (from an energy point of view) would be R1 and R2, if it were in a red area, the optimal relay selection
+  would be only R1, and if it were in a blue area, the optimal relay selection would be only R2. The yellow regions correspond to points where our characterization is not
+  tight enough to determine the optimal relay selection.</p>
+
+  <p>This research project comprises many of our ongoing and future research directions. In particular, we have been studying how results on degrees of freedom such as
+  <a href="publications.html#j1" target="_self">[J1]</a> and <a href="publications.html#j6" target="_self">[J6]</a> are affected by real-world constraints such as computational complexity and limited
+  channel diversity. For example, the recent work in <a href="http://arxiv.org/abs/1309.0898">[Issa]</a> tackles these two issues by characterizing the degrees of freedom achievable
+  on a 2 x 2 x 2 wireless network with linear schemes and no channel diversity. We are currently studying how these ideas can be scaled for the general <font face="times"> <i>K</i> x <i>K</i> x <i>K</i> </font> setting.</p>
+  
+  </div>
+
+	<br><br><br><br><br><br>
+</td></tr>
+</tbody></table>
+
+
+
+
+</body>
+
+<!-- <script LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT"> 
+document.write("<a href='http://www.statsight.com' target='_blank'><img src='http://www.statsight.com/count.php?userid=foie.ece.cornell.edu&referrer=" + document.referrer + "' alt='Free Counter and Webstats' border=0 height='1' width='1'></a>");
+</script> -->
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45141925-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</html>
