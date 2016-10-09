@@ -34,10 +34,197 @@
 
 
   <h1>Research Projects</h1>
+
+<h2>A Practical Overlap-Based Assembler for Long-Read Sequencing Data</h2>
+
+<p>
+Based on theoretical insights into the assembly problem (see research projects below), we have been implementing a practical assembler for long-read sequencing data.
+Our assembler, called HINGE, strives to achieve <i>optimal repeat resolution</i> by distinguishing repeats that can be resolved given the data from those that cannot. 
+As illustrated in Figure 1a, "hinges" are placed on reads at the boundaries of unbridged repeats. 
+Intuitively, reads can bend around these hinges, which allows unbridged repeats to be naturally collapsed on the graph.
+As a result, HINGE combines the error resilience of overlap-based methods with the repeat-resolution capabilities of de Bruijn graph assemblers. HINGE was evaluated on the long-read datasets from the NCTC 3000 project (Wellcome Trust Sanger Institute), and shown to produce more finished assemblies than the NCTC manual pipeline (based on the HGAP assembler). 
+Moreover HINGE identified 40 datasets with unresolvable repeats (one example is shown in Figure 1b). In these cases, the HINGE graph captures all assemblies consistent with the data, while other approaches fragment the assembly or resolve the ambiguity arbitrarily.
+
+</p>
+
+<center>
+<img src="hinge2.png" width=600px>
+</center>
+
+<p>
+Figure 1: (a) HINGE identifies the start and end of an unbridged repeat and places hinges at the corresponding reads. When the repeat is unbridged, hinges allow the corresponding segments to collapse in the graph. When a repeat is bridged, no hinge is placed on the reads, and the repeat is resolved; (b) For NCTC9657 dataset (<i>K. pneumoniae</i>), the HINGE graph allows us to identify a 25 kbp unbridged triple repeat that cannot be resolved given the data (two possible traversals). 
+An additional unbridged repeat is identified but, since the resulting loop admits only one possible traversal (as illustrated by the black arrow), HINGE can resolve such a repeat. 
+The HGAP assembler breaks the assembly at these unbridged repeats, and returns three long contigs.
+The HINGE graph is colored according to how these contigs are mapped onto it.
+We notice that contig 1 of the NCTC pipeline incorrectly resolves a triple repeat that is unresolvable given the reads, thus creating a mis-assembly.
+</p>
+
+
+<p>
+A preprint describing the workings of HINGE in detail is available at <a href="http://biorxiv.org/content/early/2016/08/01/062117">bioRxiv</a> and the software is available (and being frequently updated) on <a href="http://github.com/fxia22/HINGE">github</a>.
+</p>
+
+
+<br>
+<h2>Fundamental Limits of Genome Assembly</h2>
+
+  
+<!--   <p>Current DNA sequencing technologies are based on a two-step process.
+First, tens or hundreds of millions of fragments from random locations on the DNA sequence are read via <it>shotgun sequencing</it>.
+Second, these fragments, called reads, are merged to each other based on regions of overlap, using an <it>assembly algorithm</it>.
+</p> -->
+
+<!-- <p>
+In the last decade, the so-called next-generation sequencing platforms 
+were very successful at driving sequencing costs down and employing heavy
+parallelization in order to achieve <i>high-throughput</i> sequencing. 
+While these technologies caused a significant reduction in the timescale of sequencing, and an explosion in the number of sequencing projects, they have one shortcoming: short read lengths.
+In practice, this results in very fragmented assemblies, with large gaps and little linking information between fragments.
+</p>
+ -->
+<!-- <p>
+In recent years, however, emerging <i>third-generation technologies</i> have made the goal of obtaining finished assemblies at a reasonable cost and in automated fashion within reach.
+However, long-read technologies 
+
+
+, at the cost of significantly higher error rates.
+From an assembly point of view, this technology tradeoff presents several new challenges, and
+Information Theory arises as a natural framework to study questions about the fundamental performance limitations.
+Two aspects, in particular, are currently not well understood:
+</p>
+ -->
+
+<p>
+While genome assembly has been a central task in computational biology for decades, only with the recent advent of long-read technologies has the goal of obtaining near-finished assemblies in an automated fashion become within reach. 
+However, along with long reads came several technical issues. 
+All long-read sequencing technologies have lower throughput and are subject to higher error rates than the previous generation of short-read technologies.
+Therefore, these technological tradeoffs naturally motivate important questions regarding the fundamental performance capabilities of such techonologies.
+Moreover, from an algorithmic perspective, the de Bruijn graph paradigm, popularized by second-generation sequencing technologies, seems unfit to handle the high error rates and leverage the potential of long reads. 
+But the alternative, overlap-based approaches, are known to lead to NP-hard formulations of the assembly problem. 
+Is there a way out? 
+</p>
+<!-- seems to face a long known computational hardness issue -->
+<!-- But what would be the algorithmic alternative? Can one devise read-overlap based assemblers which are computationally efficient? -->
+
+<!-- The study of these questions was initiated in <a =href="">Motahari et al, 2011</a> and <a href="">Bresler et al, 2013</a>, with a focus on error-free reads. 
+Motivated by these works, 
+ -->
+<!-- We considered the following two research directions: -->
+<!-- 
+Given these technological tradeoffs, information-theoretic considerations regarding the fundamental limits 
+
+it is natural to study the fundamental performance limitations of the genome assembly problem.
+What read length, coverage depth (number of reads), and error rates provide enough information for perfect genome assembly to be possible? 
+And when such requirements are not met, what is the next-best goal? -->
+<!-- an information-theoretic arises as a natural framework to study questions about the fundamental performance limitations.
+extracting the information present in these long 
+long error-prone reads in order to reliably resolve repeats is still a challenge. 
+ -->
+
+
+
+<br>
+<div id="cite"> <b>Computational Complexity vs. Information Limits: Is the Assembly Problem NP-hard?</b> &nbsp; <a href="publications.html#j7">[J7]</a>
+
+<p>
+Traditional assembly algorithms based on de Bruijn graphs, which were very successful in the context of short-read technologies, are known to be too sensitive to the high error rates of long-read sequencing technologies as a large number of false K-mers are created.
+In practice, assembly of long reads is usually accomplished by identifying approximate matches between pairs of reads, and constructing a read-overlap graph. 
+In this graph, each read is a node, and two nodes are connected by an edge if they share a "significant" overlap.
+The true genome thus corresponds to a path that visits every node on the graph, or a Hamiltonian path. 
+As such, the assembly problem becomes NP-hard under most overlap-based formulations, and most of the known algorithmic approaches are heuristic in nature.
+</p>
+
+
+<center>
+<img src="debruijnrog.png" width=600px>
+</center>
+
+<p>
+Figure 2: (a) Example of de Bruijn graph for sequence ACGCATTCGCGATT with K = 3; and (b) example of read-overlap
+graph for same sequence with reads of length 5.
+</p>
+
+
+<p>
+In  <a href="publications.html#j7">[J7]</a>, we show that the NP-hardness of the computational problem can be overcome if we focus on instances of the assembly problem that are feasible from an information-theoretic standpoint. We arrive at this conclusion by first setting the computational complexity issue aside, and instead seeking algorithms that target information limits. In particular, we begin with a basic feasibility question: when does the set of reads contain enough information to allow unambiguous reconstruction of the true sequence? We show that in most instances of the problem where the reads do contain enough information for assembly, the read-overlap graph can be sparsified, giving rise to an Eulerian graph where the problem can be solved in linear time. We conclude that the instances of the assembly problem that are informationally feasible are also efficiently solvable.
+</p>
+
+
+
+<br>
+<div id="cite"> <b>A Rate-Distortion Approach to Partial Genome Assembly</b> &nbsp; <a href="publications.html#c11">[C13]</a>
+
+
+<p>
+At the heart of the assembly problem lies a fundamental information-theoretic question: Given a read length and a coverage depth (i.e., the average number of reads per base), is there enough information in the read data to unambiguously reconstruct the genome? 
+The work by <a href="https://arxiv.org/pdf/1301.0068v3.pdf">Bresler et al, 2013</a> initiated the study of this question by characterizing a feasibility curve relating the read length and coverage depth needed to perfectly assemble a genome. 
+<!-- , assuming error free reads. 
+Evaluating this curve on several genomes revealed an interesting threshold phenomenon: if the read length is below a certain critical value <img src="lcrit.png" width=23px> (which is a function of the repeat patterns in the genome), reconstruction is impossible; a read length slightly above <img src="lcrit.png" width=23px> and a coverage depth close to the Lander-Waterman depth cLW (i.e., just enough reads to cover the whole sequence) is sufficient. 
+ --></p>
+
+
+
+
+<p>
+<!-- Earlier formulations of the DNA assembly problem were all in the context of perfect assembly; i.e., given a set of reads from a long genome sequence, is it possible to perfectly reconstruct the original sequence?  -->In practice, however, it is often the case that the read data is not sufficiently rich to permit unambiguous reconstruction of the original sequence. While a natural generalization of the perfect assembly formulation to these cases would be to consider a rate-distortion framework, partial assemblies are usually represented in terms of an assembly graph, making the definition of a distortion measure challenging. In <a href="publications.html#c11">[C13]</a>, we introduced a distortion measure for assembly graphs that can be understood as the logarithm of the number of Eulerian cycles in the graph, each of which correspond to a candidate assembly that could have generated the observed reads. 
+This allows us to study a "Rate"-Distortion tradeoff, where the rate corresponds to the number of reads and the read length.
+We also introduce an algorithm for the construction of an assembly graph (a precursor of the HINGE algorithm described above), and analyze its performance in terms of the Length-Distortion curve, showing that it is close to optimal in several real genomes.
+</p>
+
+
+<center>
+<img src="partial.png" width=600px>
+</center>
+
+<p>
+Figure 3: The assembly graph in (a) admits two distinct traversals (Green-Blue-Yellow or Green-Yellow-Blue) and, according to the distortion measure proposed in [C13], would have distortion log(2); (b) Lower and upper bounds for the Length-Distortion curve for the <i>S. aureus</i> genome. This curve characterizes the lowest achievable distortion for a given read length L.
+The upper bounds are computed for several values of the number of reads normalized by the Lander-Waterman number of reads.
+</p>
+
+
+<br>
+<div id="cite"> <b>Error Correction of Sequencing Data</b> &nbsp; <a href="publications.html#j9">[J9]</a>,<a href="publications.html#c11">[C11]</a>
+
+
+
+<p>
+Given the framework in <a href="https://arxiv.org/pdf/1301.0068v3.pdf">Bresler et al, 2013</a>, the impact of read errors on genome assembly can be studied by asking how the information-theoretic requirements captured by these feasibility curves change when there are errors in the reads.
+To study this question, in <a href="publications.html#c11">[C11]</a> and <a href="publications.html#j9">[J9]</a> we considered a simple error model where errors are erasures that can occur at adversarially chosen positions, up to a limit in the number of erasures per read and per genome position. 
+For this adversarial scenario, we introduce a notion of worst-case typicality, which translates into an error-correction scheme with optimality guarantees in terms of reconstructing the error-free k-spectrum of the genome (i.e., the set of length-k substrings) for the largest possible k.
+The worst-case nature of our analysis ensures that the proposed error-correction method is robust and allows us to analyze its performance under stochastic error models, and verify that the impact of errors (at least under the model considered) on the information requirements for assembly is mild and the critical read length <img src="lcrit.png" width=23px> does not change, as depicted in the figure below.
+</p>
+
+
+
+<center>
+<img src="saureus_rsph.png" width=600px>
+</center>
+
+<p>
+Figure 4: Sufficiency curves when erasures at a rate p are allowed on the assembled sequence.
+Reads are assumed to be sampled independently and uniformly at random, and erasures occur independently with probability p.
+</p>
+
+
+
+
+<!-- <ul>
+<li> <a href="errorcorrection.html">What is the impact of read errors on the read length and sequencing coverage requirements for assembly?</a>
+What are the fundamental limits of <i>error correction</i> in sequencing data, and how can one efficiently "clean" the reads from third-generation technologies without sacrificing the read length? </li>
+<li> The <i>De Bruijn graph</i> assembly paradigm, popularized in the second-generation sequencing technologies, seems unfit to leverage the potential of long reads.
+To generate non-fragmented (contiguous) assemblies, what would be the algorithmic alternative?
+<a href="assemblyhardness.html">Can one devise <i>read-overlap</i> based assemblers which are computationally efficient? </a> </li>
+</ul>
+
+
+<p>
+Several exciting research directions follow from these questions.
+To address (a), we have studied the <i>error correction capability</i> of read data, seeking to establish a tradeoff between error rate and read length requirements.
+To address (b), we have been developing new assembly algorithms that construct read-overlap graphs that are sparse enough so that they can be efficiently computed, while retaining most of the read-overlap information.</p> -->
+
  
  
- <!--   
-  <div id="cite"><strong>Error Correction of High-Throughput Genomic Data</strong> &nbsp; <a href="publications.html#c1">[C11]</a>
+<!--   <div id="cite"><strong>Fundamentals of "next-next-generation" Sequencing Technologies</strong> &nbsp; <a href="publications.html#c1">[C11]</a>
   
   <p>Roughly speaking, different shotgun sequencing platforms can be distinguished from the point of view of three main metrics:
 the read length, the read error rate, and the read throughput. In the last decade, the so-called next-generation sequencing
@@ -72,9 +259,15 @@ base in the sequence, but are otherwise arbitrary. The main result in <a href="p
 above which perfect assembly is always possible. While in the noiseless case l_crit is a function of the sequence repeat structure, Ã·`crit depends more generally on the error rate and on
 the approximate repeats in the sequence. By evaluating this value for several real genomes, we see that the impact of read errors on the fundamental assembly capabilities is not very severe.
 
-  <br><br> -->
+  <br><br>  -->
   
 
+<br><br>
+
+
+  <h2>Wireless Network Information Theory</h2>
+
+  <br>
   
   <div id="cite"><strong>Fundamentals of Multi-hop Multi-flow Wireless Networks </strong> &nbsp; <a href="publications.html#j1">[J1]</a>,<a href="publications.html#c1" target="_self">[C1]</a>,<a href="publications.html#j6" target="_self">[J6]</a>,<a href="publications.html#c5" target="_self">[C5]</a>,<a href="publications.html#c6" target="_self">[C6]</a>
   
