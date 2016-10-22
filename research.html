@@ -124,7 +124,7 @@ long error-prone reads in order to reliably resolve repeats is still a challenge
 
 
 <br>
-<div id="cite"> <b>Computational Complexity vs. Information Limits: Is the Assembly Problem NP-hard?</b> &nbsp; <a href="publications.html#j7">[J7]</a>
+<div id="cite"> <b>Computational Complexity vs. Information Limits: Is the Assembly Problem NP-hard?</b> &nbsp; <a href="publications.html#j8">[J8]</a>
 
 <p>
 Traditional assembly algorithms based on de Bruijn graphs, which were very successful in the context of short-read technologies, are known to be too sensitive to the high error rates of long-read sequencing technologies as a large number of false K-mers are created.
@@ -146,7 +146,7 @@ graph for same sequence with reads of length 5.
 
 
 <p>
-In  <a href="publications.html#j7">[J7]</a>, we show that the NP-hardness of the computational problem can be overcome if we focus on instances of the assembly problem that are feasible from an information-theoretic standpoint. We arrive at this conclusion by first setting the computational complexity issue aside, and instead seeking algorithms that target information limits. In particular, we begin with a basic feasibility question: when does the set of reads contain enough information to allow unambiguous reconstruction of the true sequence? We show that in most instances of the problem where the reads do contain enough information for assembly, the read-overlap graph can be sparsified, giving rise to an Eulerian graph where the problem can be solved in linear time. We conclude that the instances of the assembly problem that are informationally feasible are also efficiently solvable.
+In  <a href="publications.html#j8">[J8]</a>, we show that the NP-hardness of the computational problem can be overcome if we focus on instances of the assembly problem that are feasible from an information-theoretic standpoint. We arrive at this conclusion by first setting the computational complexity issue aside, and instead seeking algorithms that target information limits. In particular, we begin with a basic feasibility question: when does the set of reads contain enough information to allow unambiguous reconstruction of the true sequence? We show that in most instances of the problem where the reads do contain enough information for assembly, the read-overlap graph can be sparsified, giving rise to an Eulerian graph where the problem can be solved in linear time. We conclude that the instances of the assembly problem that are informationally feasible are also efficiently solvable.
 </p>
 
 
@@ -183,13 +183,13 @@ The upper bounds are computed for several values of the number of reads normaliz
 
 
 <br>
-<div id="cite"> <b>Error Correction of Sequencing Data</b> &nbsp; <a href="publications.html#j9">[J9]</a>,<a href="publications.html#c11">[C11]</a>
+<div id="cite"> <b>Error Correction of Sequencing Data</b> &nbsp; <a href="publications.html#j9">[J7]</a>,<a href="publications.html#c11">[C11]</a>
 
 
 
 <p>
 Given the framework in <a href="https://arxiv.org/pdf/1301.0068v3.pdf">Bresler et al, 2013</a>, the impact of read errors on genome assembly can be studied by asking how the information-theoretic requirements captured by these feasibility curves change when there are errors in the reads.
-To study this question, in <a href="publications.html#c11">[C11]</a> and <a href="publications.html#j9">[J9]</a> we considered a simple error model where errors are erasures that can occur at adversarially chosen positions, up to a limit in the number of erasures per read and per genome position. 
+To study this question, in <a href="publications.html#c11">[C11]</a> and <a href="publications.html#j7">[J7]</a> we considered a simple error model where errors are erasures that can occur at adversarially chosen positions, up to a limit in the number of erasures per read and per genome position. 
 For this adversarial scenario, we introduce a notion of worst-case typicality, which translates into an error-correction scheme with optimality guarantees in terms of reconstructing the error-free k-spectrum of the genome (i.e., the set of length-k substrings) for the largest possible k.
 The worst-case nature of our analysis ensures that the proposed error-correction method is robust and allows us to analyze its performance under stochastic error models, and verify that the impact of errors (at least under the model considered) on the information requirements for assembly is mild and the critical read length <img src="lcrit.png" width=23px> does not change, as depicted in the figure below.
 </p>
