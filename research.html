@@ -43,6 +43,7 @@ Our assembler, called HINGE, strives to achieve <i>optimal repeat resolution</i>
 As illustrated in Figure 1a, "hinges" are placed on reads at the boundaries of unbridged repeats. 
 Intuitively, reads can bend around these hinges, which allows unbridged repeats to be naturally collapsed on the graph.
 As a result, HINGE combines the error resilience of overlap-based methods with the repeat-resolution capabilities of de Bruijn graph assemblers. HINGE was evaluated on the long-read datasets from the NCTC 3000 project (Wellcome Trust Sanger Institute), and shown to produce more finished assemblies than the NCTC manual pipeline (based on the HGAP assembler). 
+The graph produced by HINGE on 997 datasets is displayed <a href="https://web.stanford.edu/~gkamath/NCTC/report.html">here</a>, alongside the output of the NCTC current pipeline and of the <a href="http://bioinformatics.oxfordjournals.org/content/early/2016/03/18/bioinformatics.btw152.abstract">Miniasm assembler</a>.
 Moreover HINGE identified 40 datasets with unresolvable repeats (one example is shown in Figure 1b). In these cases, the HINGE graph captures all assemblies consistent with the data, while other approaches fragment the assembly or resolve the ambiguity arbitrarily.
 
 </p>
